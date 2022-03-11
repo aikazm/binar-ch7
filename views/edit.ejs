@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partial/head') %>
+
+<body>
+  <%- include('partial/navbar') %>
+  <div class="container-fluid">
+    <h1 class="text-center">Edit Entry</h1>
+    <div class="">
+      <form action="/edit?id=<%= user.id %> " method="POST">
+        <div class="form-floating">
+          <input type="text" class="form-control" id="floatingInput" name="name" placeholder="name" value="<%= user.nama %>" />
+          <label for="floatingInput">name</label>
+        </div>
+        <div class="form-floating my-4">
+          <input type="email" class="form-control" id="floatingInput" name="email" placeholder="name@example.com" value="<%= user.email %>" />
+          <label for="floatingInput">Email address</label>
+        </div>
+        <div class="form-floating my-4">
+          <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password" />
+          <label for="floatingPassword">Password</label>
+        </div>
+        <div class="form-floating my-4">
+          <input type="text" class="form-control" id="input-age" name="age" placeholder="Age" value="<%= user.biodata.age %>" />
+          <label for="floatingInput">Age</label>
+        </div>
+        <div class="form-floating my-4">
+          <input type="text" class="form-control" id="input-age" name="city" placeholder="City" value="<%= user.biodata.city %>" />
+          <label for="floatingInput">City</label>
+        </div>
+        <div class="text-center mt-2">
+          <button class="btn btn-warning btn-lg">Edit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+
+</body>
+
+</html>

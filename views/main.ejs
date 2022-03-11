@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partial/head') %>
+
+<body>
+  <%- include('./partial/navbar') %>
+  <div class="container-fluid">
+    <h1 class="text-center">User List</h1>
+    <a href="/register">
+      <button class="btn btn-primary mb-2 mt-2">Add User</button>
+    </a>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Age</th>
+          <th>City</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% data.forEach(user => { %>
+        <tr>
+          <td><%= user.username %> </td>
+          <td><%= user.email %> </td>
+          <td><%= user.biodata.age %> </td>
+          <td><%= user.biodata.city %> </td>
+
+          <td>
+            <div class="row">
+              <div class="col-6">
+                <a href="/edit?id=<%= user.id %>">
+                  <button class="btn btn-warning">
+                    Edit
+                  </button>
+                </a>
+              </div>
+
+              <div class="col-6">
+                <form action="/delete?id=<%= user.id %>" method="POST">
+                  <button class="btn btn-danger">
+                    Delete
+                  </button>
+                </form>
+              </div>
+            </div>
+
+
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+      <script src="/js/bootstrap.min.js"></script>
+</body>
+
+</html>
